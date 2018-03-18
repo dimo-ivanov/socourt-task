@@ -27,6 +27,13 @@ class BookAddForm extends Component {
     )
   }
 
+  componentWillUnmount () {
+    bookStore.removeListener(
+      bookStore.eventTypes.BOOK_CREATED,
+      this.handleBookCreation
+    )
+  }
+
   handleChange (event) {
     FormHelpers.handleFormChange.bind(this)(event, 'book')
   }
