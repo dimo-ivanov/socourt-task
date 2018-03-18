@@ -5,7 +5,8 @@ const bookActions = {
     GET_ALL: 'GET_ALL_BOOKS',
     GENRE_SEARCH: 'SEARCH_BY_GENRE',
     NAME_SEARCH: 'SEARCH_BY_NAME',
-    BOOK_DETAILS: 'GET_BOOK_DETAILS'
+    BOOK_DETAILS: 'GET_BOOK_DETAILS',
+    CREATE: 'CREATE_BOOK'
   },
   getAll () {
     dispatcher.dispatch({
@@ -28,6 +29,12 @@ const bookActions = {
     dispatcher.dispatch({
       type: this.types.BOOK_DETAILS,
       id
+    })
+  },
+  create (book) {
+    dispatcher.dispatch({
+      type: this.types.CREATE,
+      book
     })
   }
 }

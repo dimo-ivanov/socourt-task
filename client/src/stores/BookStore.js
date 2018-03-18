@@ -28,6 +28,12 @@ class BookStore extends EventEmitter {
       .then(data => this.emit(this.eventTypes.BOOK_FETCHED, data))
   }
 
+  createBook (book) {
+    BooksData
+      .createBook(book)
+      .then(data => this.emit(this.eventTypes.BOOK_CREATED, data))
+  }
+
   handleAction (action) {
     switch (action.type) {
       case bookActions.types.GET_ALL: {
@@ -46,6 +52,10 @@ class BookStore extends EventEmitter {
         this.getBookDetails(action.id)
         break
       }
+      case bookActions.types.CREATE: {
+        this.createBook(action.book)
+        break
+      }
       default: break
     }
   }
@@ -55,7 +65,8 @@ let bookStore = new BookStore()
 
 bookStore.eventTypes = {
   BOOKS_ALL: 'got_all_books',
-  BOOK_FETCHED: 'book_details_fetched'
+  BOOK_FETCHED: 'book_details_fetched',
+  BOOK_CREATED: 'book_created'
 }
 
 dispatcher.register(bookStore.handleAction.bind(bookStore))

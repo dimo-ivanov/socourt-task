@@ -22,7 +22,7 @@ class Navbar extends Component {
   handleUserLoggedIn (data) {
     if (data.success) {
       this.setState({
-        username: data.user.name
+        email: data.user.email
       })
     }
   }
@@ -33,7 +33,8 @@ class Navbar extends Component {
         <Link to='/'>Home</Link>
         {Auth.isUserAuthenticated() ? (
           <div>
-            <span>{this.state.username}</span>
+            <Link to='/books/add'>Add Book</Link>
+            <span>{this.state.email}</span>
             <Link to='/users/logout'>Logout</Link>
           </div>
         ) : (

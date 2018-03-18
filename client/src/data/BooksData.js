@@ -18,6 +18,10 @@ class BooksData {
   static getBookDetails (id) {
     return Data.get(`${baseUrl}/books/details/${id}`)
   }
+
+  static createBook (book) {
+    return Data.post(`${baseUrl}/books/create`, book, true)
+  }
 }
 
 export default BooksData

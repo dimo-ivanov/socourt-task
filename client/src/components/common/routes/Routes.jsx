@@ -6,6 +6,7 @@ import RegisterPage from '../../users/RegisterPage'
 import LoginPage from '../../users/LoginPage'
 import LogoutPage from '../../users/LogoutPage'
 import BookDetails from '../../items/BookDetails'
+import BookAddForm from '../../items/BookAddForm'
 
 const Routes = () => (
   <Switch>
@@ -14,6 +15,7 @@ const Routes = () => (
     <Route path='/users/login' component={LoginPage} />
     <PrivateRoute path='/users/logout' component={LogoutPage} />
     <Route path='/book/:id' component={BookDetails} />
+    <PrivateRoute path='/books/add' component={BookAddForm} />
   </Switch>
 )
 

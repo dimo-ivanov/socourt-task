@@ -4,10 +4,6 @@ class FormHelpers {
     const field = target.name
     const value = target.value
 
-    console.log(target)
-    console.log(field)
-    console.log(value)
-
     const state = this.state[stateField]
     state[field] = value
 
